@@ -1,15 +1,11 @@
-import Navbar from '../Navbar/Navbar';
 import HeroSection from '../HeroSection/HeroSection';
 import FeatureItem from '../FeatureItem/FeatureItem';
-import Footer from '../Footer/Footer';
 import './principale.css';
 import iconchat from '../img/icon-chat.png';
 import money from '../img/icon-money.png';
 import security from '../img/icon-security.png';
 const HomePage = () => {
   return (
-    <div>
-      <Navbar />
       <main>
         <HeroSection />
         <section className="features">
@@ -31,8 +27,6 @@ const HomePage = () => {
           />
         </section>
       </main>
-      <Footer />
-    </div>
   );
 }
 
