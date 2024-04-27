@@ -1,5 +1,21 @@
 .header {
-    color: #fff;
+    background-color: black;
+    color : white;
     margin-bottom: 2rem;
   }
   
+.modal{
+  background-color: white;
+  border-radius: 10px;
+  width: 40%;
+  margin-left: 30%;
+}
+
+.close{
+  color : black;
+  font-weight: 800;
+}
+
+h2{
+  color: black;
+}
