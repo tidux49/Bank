@@ -23,7 +23,7 @@ const User_page = () => {
       
     const {userinfo} = useSelector((state)=>state.userinfoReducer);
     useEffect(() => {
-        console.log("information utilisateru " + userinfo);
+        console.log("information utilisateru " + JSON.stringify(userinfo));
     }, [userinfo]);
 
 

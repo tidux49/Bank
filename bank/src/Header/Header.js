@@ -9,7 +9,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const form = useRef();
   const {token} = useSelector((state)=>state.loginReducer);
-
   const handleEditNameClick = () => {
     setIsModalOpen(true);
   };
@@ -22,7 +21,7 @@ const Header = () => {
     event.preventDefault();
     const param = {
     newUsername : form.current[0].value,}
-    dispatch(putusername(token,param));
+    dispatch(putusername(token,param,userinfo.id));
     handleCloseModal();
   };
 

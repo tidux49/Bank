@@ -48,8 +48,8 @@ export const postusername = (token) => {
    catch (error) {};}}
    
 
-   export const putusername = (token,param) => {
-
+   export const putusername = (token,param,id) => {
+    console.log(JSON.stringify(id));
     const auto = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ export const postusername = (token) => {
     }
     return async (dispatch) => {
       try {
-        const response = await axios.put("http://localhost:3001/api/v1/user/profile",param,auto);;
-          dispatch({ type: PUT_USERNAME, payload: param });
+        const response = await axios.put(`http://localhost:3001/api/v1/user/profile/${id}`,param,auto);;
+          dispatch({ type: PUT_USERNAME, payload: response.data });
       }
      catch (error) {};}}   
