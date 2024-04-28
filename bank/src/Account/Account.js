@@ -1,42 +1,28 @@
 import './Account.css';
+import AccountComposant from "../AccountComposant/AccountComposant";
 
 const Account = () => {
+
+  const accounts = [
+    { title: 'Argent Bank Checking', accountNumber: 'x8349', amount: '$2,082.79', description: 'Available Balance' },
+    { title: 'Argent Bank Savings', accountNumber: 'x6712', amount: '$10,928.42', description: 'Available Balance' },
+    { title: 'Argent Bank Credit Card', accountNumber: 'x8349', amount: '$184.30', description: 'Current Balance' }
+  ];
 
 
   return (
     <section>
-      <section class="account">
-        <h2 class="sr-only">Accounts</h2>
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Checking (x8349)</h3>
-          <p class="account-amount">$2,082.79</p>
-          <p class="account-amount-description">Available Balance</p>
-        </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section class="account">
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Savings (x6712)</h3>
-          <p class="account-amount">$10,928.42</p>
-          <p class="account-amount-description">Available Balance</p>
-        </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section class="account">
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Credit Card (x8349)</h3>
-          <p class="account-amount">$184.30</p>
-          <p class="account-amount-description">Current Balance</p>
-        </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-      </section>
+    <h2 className="sr-only">Accounts</h2>
+    {accounts.map(account => (
+      <AccountComposant
+        key={account.accountNumber}
+        title={account.title}
+        accountNumber={account.accountNumber}
+        amount={account.amount}
+        description={account.description}
+      />
+    ))}
+  </section>
   );
 };
 

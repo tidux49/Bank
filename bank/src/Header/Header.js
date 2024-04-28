@@ -46,7 +46,7 @@ const Header = () => {
             <h1 className="close" onClick={handleCloseModal}>x</h1>
             <h2>Your new Username</h2>
             <form ref={form} onSubmit={handleSubmit}>
-              <input type="text" />
+              <input type="text" required />
               <button type="submit" className="button_modal">Save</button>
             </form>
           </div>
