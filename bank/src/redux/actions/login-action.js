@@ -4,6 +4,7 @@ export const FAIL_LOGIN = "FAIL_LOGIN";
 export const ERROR_LOGIN = "ERROR_LOGIN";
 export const POST_USERINFO = "POST_USERINFO";
 export const PUT_USERNAME = "PUT_USERNAME";
+export const LOGOUT = "LOGOUT";
 
 export const loginfetch = (datalogin) => {
   return async (dispatch) => {
@@ -32,6 +33,9 @@ export const loginfetch = (datalogin) => {
   };
 };
 
+export const logout = () => ({
+  type: 'LOGOUT',
+});
 
 export const postusername = (token) => {
   const config = {
@@ -48,8 +52,7 @@ export const postusername = (token) => {
    catch (error) {};}}
    
 
-   export const putusername = (token,param,id) => {
-    console.log(JSON.stringify(id));
+   export const putusername = (token,param) => {
     const auto = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -57,7 +60,7 @@ export const postusername = (token) => {
     }
     return async (dispatch) => {
       try {
-        const response = await axios.put(`http://localhost:3001/api/v1/user/profile/${id}`,param,auto);;
+        const response = await axios.put(`http://localhost:3001/api/v1/user/profile`,param,auto);;
           dispatch({ type: PUT_USERNAME, payload: response.data });
       }
      catch (error) {};}}   

@@ -1,7 +1,8 @@
 import './Header.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { putusername } from '../redux/actions/login-action';
+import { postusername } from '../redux/actions/login-action';
 
 const Header = () => {
   const { userinfo } = useSelector((state) => state.userinfoReducer);
@@ -20,18 +21,23 @@ const Header = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const param = {
-    newUsername : form.current[0].value,}
-    dispatch(putusername(token,param,userinfo.id));
+    userName : form.current[0].value,}
+    dispatch(putusername(token,param));
+    console.log(JSON.stringify(userinfo));
     handleCloseModal();
   };
+  const {newusername} = useSelector((state)=>state.newusernameReducer);
+  useEffect(() => {
+    if(newusername != null){
+      dispatch(postusername(token));}
+  }, [newusername]);
+
 
   return (
     <div className="header">
       <h1>
         Welcome back<br />
-        {userinfo && userinfo.firstName} {userinfo && userinfo.lastName}<br />
-        {userinfo && userinfo.userName}
-      </h1>
+        {userinfo && userinfo.firstName} {userinfo && userinfo.lastName}</h1>
       <button className="edit-button" onClick={handleEditNameClick}>Edit Name</button>
 
       {isModalOpen && (
@@ -41,7 +47,7 @@ const Header = () => {
             <h2>Your new Username</h2>
             <form ref={form} onSubmit={handleSubmit}>
               <input type="text" />
-              <button type="submit">Save</button>
+              <button type="submit" className="button_modal">Save</button>
             </form>
           </div>
         </div>

@@ -2,6 +2,7 @@ import Header from '../Header/Header';
 import Account from '../Account/Account';
 import { useDispatch, useSelector} from 'react-redux';
 import {useEffect } from 'react';
+import './user.css';
 import { postusername } from '../redux/actions/login-action';
 
 const User_page = () => {
@@ -28,8 +29,8 @@ const User_page = () => {
 
 
     return(
-        <section>
-        <Header token-props={token} />
+        <section className='user'>
+        <Header />
         <Account />
         </section>
     )

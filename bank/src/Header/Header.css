@@ -1,5 +1,5 @@
 .header {
-    background-color: black;
+    background-color: #12002b;
     color : white;
     margin-bottom: 2rem;
   }
@@ -14,8 +14,21 @@
 .close{
   color : black;
   font-weight: 800;
+  margin-left: 90%;
 }
 
 h2{
   color: black;
+}
+
+.button_modal{
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
 }
