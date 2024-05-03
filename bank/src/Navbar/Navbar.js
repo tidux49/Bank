@@ -33,11 +33,11 @@ const Navbar = () => {
       </Link>
       <div>
       {connection ? (
-          <Link className="main-nav-item" to="/" onClick={handleLogout}>
+          <div className="main-nav-item" >
             <FontAwesomeIcon icon={faCircleUser} className="fa fa-user-circle" />
-            <p>{userinfo && userinfo.userName}</p>
-            Sign Out
-          </Link>
+            <Link to="/user">{userinfo && userinfo.userName}</Link>
+            <Link to="/" onClick={handleLogout}>Sign Out</Link>
+          </div>
         ) : (
           <Link className="main-nav-item" to="/sign-in">
             <FontAwesomeIcon icon={faCircleUser} className="fa fa-user-circle" />
